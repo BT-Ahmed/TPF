@@ -21,7 +21,7 @@ class SettingsActivity : AppCompatActivity() {
     class SettingsFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             // Load the preferences from the preferences.xml file
-            setPreferencesFromResource(R.xml.preferences, rootKey)
+//            setPreferencesFromResource(R.xml.preferences, rootKey)
 
             // Get the color preference and set the onPreferenceClickListener
             /*val colorPreference = findPreference("text_color")

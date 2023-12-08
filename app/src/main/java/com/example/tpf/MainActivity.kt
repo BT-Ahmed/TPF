@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Initialize the recycler view and the adapter
-        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView = findViewById(R.id.all_products_recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
         productAdapter = ProductAdapter(this, queryProducts())
         recyclerView.adapter = productAdapter

@@ -2,6 +2,7 @@ package com.example.tpf
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -40,12 +41,9 @@ class SettingsActivity : AppCompatActivity() {
             // Load the preferences from the preferences.xml file
             setPreferencesFromResource(R.xml.preferences, rootKey)
 
-            /*// Get the color preference and set the onPreferenceClickListener
+            // Get the color preference and set the onPreferenceClickListener
             val colorPreference = findPreference<Preference>("text_color")
-            println(colorPreference)
-            colorPreference.onPreferenceChangeListener = Preference.OnPreferenceChangeListener {
 
-            }*/
             /*  colorPreference?.onPreferenceClickListener =
                   Preference.OnPreferenceClickListener {
                       // Show the color picker dialog with the current color

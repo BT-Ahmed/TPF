@@ -63,19 +63,24 @@ class ProductAdapter(
 
             // Apply the text size and color to the text views
             textViewLabel.textSize = textSize
-            textViewPrice.textSize = textSize
-            textViewAvailability.textSize = textSize
+            /*textViewPrice.textSize = textSize
+            textViewAvailability.textSize = textSize*/
             textViewLabel.setTextColor(textColor)
-            textViewPrice.setTextColor(textColor)
-            textViewAvailability.setTextColor(textColor)
+            /*textViewPrice.setTextColor(textColor)
+            textViewAvailability.setTextColor(textColor)*/
+
+            itemView.setOnClickListener {
+                // Start the EditProductActivity with the product data as an extra
+                navigateToTheEditProductActivity(product)
+            }
 
             // Set the click listeners for the edit and delete buttons
             buttonEdit.setOnClickListener {
                 // Start the EditProductActivity with the product data as an extra
-                val intent = Intent(context, EditProductActivity::class.java)
-                intent.putExtra(Product.TABLE_NAME, product)
-                context.startActivity(intent)
+                navigateToTheEditProductActivity(product)
             }
+
+
 
             buttonDelete.setOnClickListener {
                 // Delete the product from the database and notify the adapter
@@ -89,10 +94,21 @@ class ProductAdapter(
                     // Update the position of the remaining items in the adapter
                     notifyItemRangeChanged(adapterPosition, itemCount)
                     notifyDataSetChanged()
+
                 } else {
                     Toast.makeText(context, "Error deleting product", Toast.LENGTH_SHORT).show()
                 }
             }
+
+
+        }
+
+        // In order to implement the DRY principle
+        private fun navigateToTheEditProductActivity(product: Product) {
+            // Start the EditProductActivity with the product data as an extra
+            val intent = Intent(context, EditProductActivity::class.java)
+            intent.putExtra(Product.TABLE_NAME, product)
+            context.startActivity(intent)
         }
     }
 }

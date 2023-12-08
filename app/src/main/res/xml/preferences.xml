@@ -10,6 +10,21 @@
             app:key="text_size"
             app:showSeekBarValue="true"
             app:title="Text size" />
+
+        <com.skydoves.colorpickerpreference.ColorPickerPreference
+            android:defaultValue="@color/black"
+            android:key="text_color"
+            android:persistent="true"
+            android:summary="changes the product label's Text color"
+            app:title="Product Label's Text Color"
+            app:preference_attachAlphaSlideBar="true"
+            app:preference_attachBrightnessSlideBar="true"
+            app:preference_colorBox_radius="26dp"
+            app:preference_dialog_negative="Cancel"
+            app:preference_dialog_positive="Confirm"
+            app:preference_dialog_title="Product Label's Text Color"
+            app:preference_selector="@drawable/wheel" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

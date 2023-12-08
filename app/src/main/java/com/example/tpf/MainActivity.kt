@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var productAdapter: ProductAdapter
-    private lateinit var fab: FloatingActionButton
+    private lateinit var addProductFab: FloatingActionButton
     private lateinit var settingsFab: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = productAdapter
 
         // Initialize the floating action button and set the click listener
-        fab = findViewById(R.id.fab)
-        fab.setOnClickListener {
+        addProductFab = findViewById(R.id.add_product_fab)
+        addProductFab.setOnClickListener {
             // Start the EditProductActivity with no extra data
             val intent = Intent(this, EditProductActivity::class.java)
             startActivity(intent)

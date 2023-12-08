@@ -29,6 +29,7 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = products[position]
         holder.bind(product)
+        holder.
     }
 
     override fun getItemCount(): Int {
@@ -61,8 +62,6 @@ class ProductAdapter(
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
             val textSize: Float = sharedPreferences.getInt("text_size", 16).toFloat()
             val textColor: Int = sharedPreferences.getInt("text_color", ContextCompat.getColor(context, R.color.black))
-            val productLabelHexTextColor = sharedPreferences.getString("product_label_hex_text_color", "#FFFFFF")
-            val productLabelColor = Color.parseColor(productLabelHexTextColor)
 
             // Apply the text size and color to the text views
             textViewLabel.textSize = textSize
@@ -71,7 +70,6 @@ class ProductAdapter(
             textViewLabel.setTextColor(textColor)
             /*textViewPrice.setTextColor(textColor)
             textViewAvailability.setTextColor(textColor)*/
-            textViewLabel.setTextColor(productLabelColor)
 
             itemView.setOnClickListener {
                 // Start the EditProductActivity with the product data as an extra

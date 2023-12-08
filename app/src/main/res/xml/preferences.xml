@@ -9,7 +9,8 @@
             app:defaultValue="16"
             app:key="text_size"
             app:showSeekBarValue="true"
-            app:title="Text size" />
+            app:title="Product Label's Text Size"
+            android:summary="changes the product label's text size"/>
 
         <com.skydoves.colorpickerpreference.ColorPickerPreference
             android:defaultValue="@color/black"
@@ -25,14 +26,6 @@
             app:preference_palette="@drawable/palestine"
             app:preference_selector="@drawable/wheel"
             app:title="Product Label's Text Color" />
-
-        <EditTextPreference
-            android:defaultValue="#FFFFFF"
-            android:inputType="text"
-            android:key="product_label_hex_text_color"
-            android:summary="changes the product label's Text color using Hex color codes"
-            android:title="Product Label's Hex Text Color" />
-
 
     </PreferenceCategory>
 

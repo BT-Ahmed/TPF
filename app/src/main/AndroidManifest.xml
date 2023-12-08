@@ -21,6 +21,10 @@
             android:exported="false"
             android:label="@string/title_activity_edit_product"
             android:theme="@style/Theme.TPF" />
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

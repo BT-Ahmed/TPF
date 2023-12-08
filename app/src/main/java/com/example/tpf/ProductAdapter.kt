@@ -80,10 +80,15 @@ class ProductAdapter(
             buttonDelete.setOnClickListener {
                 // Delete the product from the database and notify the adapter
                 val dbHelper = ProductDbHelper(context)
+                // Remove the product from the adapter's data source
                 val result = dbHelper.deleteProduct(product.id)
                 if (result > 0) {
                     Toast.makeText(context, "Product deleted", Toast.LENGTH_SHORT).show()
+                    // Notify the adapter that the item has been removed
                     notifyItemRemoved(adapterPosition)
+                    // Update the position of the remaining items in the adapter
+                    notifyItemRangeChanged(adapterPosition, itemCount)
+                    notifyDataSetChanged()
                 } else {
                     Toast.makeText(context, "Error deleting product", Toast.LENGTH_SHORT).show()
                 }

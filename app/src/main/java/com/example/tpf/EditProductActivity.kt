@@ -67,6 +67,9 @@ class EditProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_product)
 
+        // Enable the home button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         // Initialize the views
         editTextLabel = findViewById(R.id.editTextLabel)
         editTextPrice = findViewById(R.id.editTextPrice)
@@ -160,21 +163,36 @@ class EditProductActivity : AppCompatActivity() {
         // Handle the menu item selection
         return when (item.itemId) {
             R.id.action_delete -> {
-                // Delete the product from the database if it is not null
-                if (product != null) {
-                    val dbHelper = ProductDbHelper(this)
-                    val result = dbHelper.deleteProduct(product!!.id)
-                    if (result > 0) {
-                        Toast.makeText(this, "Product deleted", Toast.LENGTH_SHORT).show()
-                        // Finish the activity and go back to the main activity
-                        finish()
-                    } else {
-                        Toast.makeText(this, "Error deleting product", Toast.LENGTH_SHORT).show()
-                    }
-                }
+                deleteProduct()
+                true
+            }
+            android.R.id.home -> {
+                goBack()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+
+    // A helper function to delete the product from the database
+    private fun deleteProduct() {
+        // Delete the product from the database if it is not null
+        if (product != null) {
+            val dbHelper = ProductDbHelper(this)
+            val result = dbHelper.deleteProduct(product!!.id)
+            if (result > 0) {
+                Toast.makeText(this, "Product deleted", Toast.LENGTH_SHORT).show()
+                // Finish the activity and go back to the main activity
+                finish()
+            } else {
+                Toast.makeText(this, "Error deleting product", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    // A helper function to go back to the parent activity
+    private fun goBack() {
+        onBackPressed()
     }
 }

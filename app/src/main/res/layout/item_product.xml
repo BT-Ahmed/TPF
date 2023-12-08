@@ -69,8 +69,9 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="Edit product"
                 android:icon="@drawable/ic_baseline_edit_24"
-                android:iconTint="@color/black"
-                app:cornerRadius="8dp" />
+                android:iconTint="@color/white"
+                app:cornerRadius="8dp"
+                android:text="Edit"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonDelete"
@@ -80,7 +81,8 @@
                 android:contentDescription="Delete product"
                 android:icon="@drawable/ic_baseline_delete_forever_24"
                 android:iconTint="@color/white"
-                app:cornerRadius="8dp" />
+                app:cornerRadius="8dp"
+                android:text="Delete"/>
 
         </LinearLayout>
 

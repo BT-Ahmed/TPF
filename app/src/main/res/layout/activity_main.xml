@@ -35,4 +35,14 @@
         android:src="@drawable/ic_baseline_add_24"
         app:tint="@color/white" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/settings_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="16dp"
+        android:contentDescription="Settings"
+        android:src="@drawable/ic_baseline_settings_24"
+        app:tint="@color/white" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var productAdapter: ProductAdapter
     private lateinit var fab: FloatingActionButton
+    private lateinit var settingsFab: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,13 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             // Start the EditProductActivity with no extra data
             val intent = Intent(this, EditProductActivity::class.java)
+            startActivity(intent)
+        }
+
+        settingsFab = findViewById(R.id.settings_fab)
+        settingsFab.setOnClickListener {
+            // Start the EditProductActivity with no extra data
+            val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
     }

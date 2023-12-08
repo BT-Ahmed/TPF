@@ -41,6 +41,8 @@ class SettingsActivity : AppCompatActivity() {
             // Load the preferences from the preferences.xml file
             setPreferencesFromResource(R.xml.preferences, rootKey)
 
+            //val colorCodesRegexPattern = "^# ( [a-fA-F0-9] {6}| [a-fA-F0-9] {3})$".toRegex()
+
             // Get an instance of your preference widget
             val productLabelHexTextColor: EditTextPreference? =
                 findPreference("product_label_hex_text_color") as EditTextPreference?
@@ -75,6 +77,16 @@ class SettingsActivity : AppCompatActivity() {
                             // Reject the input
                             return@OnPreferenceChangeListener false
                         }
+
+                        /*// Redundant
+                        if (!color.matches(colorCodesRegexPattern)) {
+                            Toast.makeText(
+                                this.context,
+                                "Invalid color code. Please enter another one",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            return@OnPreferenceChangeListener false
+                        }*/
 
                         // Check if the color contains only hexadecimal digits
                         try {

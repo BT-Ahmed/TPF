@@ -16,14 +16,23 @@
             android:key="text_color"
             android:persistent="true"
             android:summary="changes the product label's Text color"
-            app:title="Product Label's Text Color"
             app:preference_attachAlphaSlideBar="true"
             app:preference_attachBrightnessSlideBar="true"
             app:preference_colorBox_radius="26dp"
             app:preference_dialog_negative="Cancel"
             app:preference_dialog_positive="Confirm"
             app:preference_dialog_title="Product Label's Text Color"
-            app:preference_selector="@drawable/wheel" />
+            app:preference_palette="@drawable/palestine"
+            app:preference_selector="@drawable/wheel"
+            app:title="Product Label's Text Color" />
+
+        <EditTextPreference
+            android:defaultValue="#FFFFFF"
+            android:inputType="text"
+            android:key="product_label_hex_text_color"
+            android:summary="changes the product label's Text color using Hex color codes"
+            android:title="Product Label's Hex Text Color" />
+
 
     </PreferenceCategory>
 

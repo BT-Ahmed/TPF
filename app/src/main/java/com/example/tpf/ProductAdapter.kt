@@ -3,6 +3,7 @@ package com.example.tpf
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,6 +61,8 @@ class ProductAdapter(
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
             val textSize: Float = sharedPreferences.getInt("text_size", 16).toFloat()
             val textColor: Int = sharedPreferences.getInt("text_color", ContextCompat.getColor(context, R.color.black))
+            val productLabelHexTextColor = sharedPreferences.getString("product_label_hex_text_color", "#FFFFFF")
+            val productLabelColor = Color.parseColor(productLabelHexTextColor)
 
             // Apply the text size and color to the text views
             textViewLabel.textSize = textSize
@@ -68,6 +71,7 @@ class ProductAdapter(
             textViewLabel.setTextColor(textColor)
             /*textViewPrice.setTextColor(textColor)
             textViewAvailability.setTextColor(textColor)*/
+            textViewLabel.setTextColor(productLabelColor)
 
             itemView.setOnClickListener {
                 // Start the EditProductActivity with the product data as an extra

@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.EditTextPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import com.skydoves.colorpickerview.ColorPickerView
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -41,25 +41,61 @@ class SettingsActivity : AppCompatActivity() {
             // Load the preferences from the preferences.xml file
             setPreferencesFromResource(R.xml.preferences, rootKey)
 
-            // Get the color preference and set the onPreferenceClickListener
-            val colorPreference = findPreference<Preference>("text_color")
+            // Get an instance of your preference widget
+            val productLabelHexTextColor: EditTextPreference? =
+                findPreference("product_label_hex_text_color") as EditTextPreference?
 
-            /*  colorPreference?.onPreferenceClickListener =
-                  Preference.OnPreferenceClickListener {
-                      // Show the color picker dialog with the current color
-                      val currentColor = colorPreference.getColor()
-                      ColorPickerView colorPickerView = new ColorPickerView.Builder(context)
-                          .setColorListener(colorPreference)
-                          .setPreferenceName("MyColorPicker");
-                      .setActionMode(ActionMode.LAST)
-                      .setAlphaSlideBar(alphaSlideBar)
-                      .setBrightnessSlideBar(brightnessSlideBar)
-                      .setFlagView(new CustomFlag(context, R.layout.layout_flag))
-                      .setPaletteDrawable(ContextCompat.getDrawable(context, R.drawable.palette))
-                      .setSelectorDrawable(ContextCompat.getDrawable(context, R.drawable.selector))
-                      .build();
-                      true
-                  }*/
+            // Set a listener to validate the input
+            if (productLabelHexTextColor != null) {
+                productLabelHexTextColor.onPreferenceChangeListener =
+                    Preference.OnPreferenceChangeListener { _, newValue ->
+                        // Get the new value as a string
+                        val color = newValue as String
+
+                        // Check if the color starts with #
+                        if (!color.startsWith("#")) {
+                            // Show a toast message to inform the user
+                            Toast.makeText(
+                                this.context,
+                                "Invalid color format. Please start with #",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            // Reject the input
+                            return@OnPreferenceChangeListener false
+                        }
+
+                        // Check if the color has 6 characters after #
+                        if (color.length != 7) {
+                            // Show a toast message to inform the user
+                            Toast.makeText(
+                                this.context,
+                                "Invalid color format. Please enter 6 characters after #",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            // Reject the input
+                            return@OnPreferenceChangeListener false
+                        }
+
+                        // Check if the color contains only hexadecimal digits
+                        try {
+                            // Parse the color as an integer
+                            val colorValue = color.substring(1).toInt(16)
+                            // If no exception is thrown, the color is valid
+                            // Accept the input
+                            return@OnPreferenceChangeListener true
+                        } catch (e: NumberFormatException) {
+                            // Show a toast message to inform the user
+                            Toast.makeText(
+                                this.context,
+                                "Invalid color format. Please enter only hexadecimal digits",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            // Reject the input
+                            return@OnPreferenceChangeListener false
+                        }
+                    }
+            }
+
         }
     }
 }

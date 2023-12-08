@@ -58,8 +58,8 @@ class ProductAdapter(
 
             // Get the text size and color preferences from the settings
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-            val textSize = sharedPreferences.getString("text_size", "16")?.toFloat() ?: 16f
-            val textColor = sharedPreferences.getInt("text_color", ContextCompat.getColor(context, R.color.black))
+            val textSize: Float = sharedPreferences.getInt("text_size", 16).toFloat()
+            val textColor: Int = sharedPreferences.getInt("text_color", ContextCompat.getColor(context, R.color.black))
 
             // Apply the text size and color to the text views
             textViewLabel.textSize = textSize

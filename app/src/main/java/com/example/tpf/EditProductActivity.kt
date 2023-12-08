@@ -66,6 +66,7 @@ class EditProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_product)
+        setSupportActionBar(findViewById(R.id.edit_product_toolbar))
 
         // Enable the home button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -167,7 +168,7 @@ class EditProductActivity : AppCompatActivity() {
                 true
             }
             android.R.id.home -> {
-                goBack()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -189,10 +190,5 @@ class EditProductActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error deleting product", Toast.LENGTH_SHORT).show()
             }
         }
-    }
-
-    // A helper function to go back to the parent activity
-    private fun goBack() {
-        onBackPressed()
     }
 }

@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(findViewById(R.id.activity_main_toollbar))
+
+        // Enable the home button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Initialize the recycler view and the adapter
         recyclerView = findViewById(R.id.recyclerView)

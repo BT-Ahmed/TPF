@@ -4,16 +4,12 @@
     <PreferenceCategory app:title="Product">
         <!-- A seek bar preference that allows users to change the text size of the products' labels -->
         <SeekBarPreference
-            app:key="text_size"
-            app:title="Text size"
-            android:min="10"
             android:max="30"
-            app:defaultValue="16" />
-        <!-- A color preference that allows users to change the text color of the products' labels -->
-        <ColorPreferenceCompat
-            app:key="text_color"
-            app:title="Text color"
-            app:defaultValue="@color/black" />
+            android:min="10"
+            app:defaultValue="16"
+            app:key="text_size"
+            app:showSeekBarValue="true"
+            app:title="Text size" />
     </PreferenceCategory>
 
 </PreferenceScreen>

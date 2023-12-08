@@ -1,0 +1,26 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+
+    <!-- An array of text size entries to display in the list preference -->
+    <string-array name="text_size_entries">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <!-- An array of text size values to use for the product labels -->
+    <integer-array name="text_size_values">
+        <item>12</item>
+        <item>16</item>
+        <item>20</item>
+    </integer-array>
+</resources>

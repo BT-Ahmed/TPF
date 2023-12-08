@@ -29,7 +29,6 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = products[position]
         holder.bind(product)
-        holder.
     }
 
     override fun getItemCount(): Int {
@@ -94,8 +93,8 @@ class ProductAdapter(
                     // Notify the adapter that the item has been removed
                     notifyItemRemoved(adapterPosition)
                     // Update the position of the remaining items in the adapter
-                    notifyItemRangeChanged(adapterPosition, itemCount)
-                    notifyDataSetChanged()
+                    /*notifyItemRangeChanged(adapterPosition, itemCount)
+                    notifyDataSetChanged()*/
 
                 } else {
                     Toast.makeText(context, "Error deleting product", Toast.LENGTH_SHORT).show()
